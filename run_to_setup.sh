@@ -6,7 +6,7 @@ mkdir kofam_database
 cd kofam_database  
 wget -c ftp://ftp.genome.jp/pub/db/kofam/ko_list.gz  
 wget -c ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz  
-gzip -d ko_list.gz  
+gzip --quiet -d ko_list.gz  
 tar xzf profiles.tar.gz; rm profiles.tar.gz  
 mv ../All_Module_KO_ids.txt profiles
 cd profiles  
@@ -16,14 +16,14 @@ cd ../
 cd ../
 mkdir dbCAN2
 cd dbCAN2
-wget http://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/dbCAN-fam-HMMs.txt
+wget -c http://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/dbCAN-fam-HMMs.txt
 perl ../Accessory_scripts/batch_hmmpress_for_dbCAN2_HMMdb.pl
 cd ../
 mkdir MEROPS
 cd MEROPS
-wget ftp://ftp.ebi.ac.uk/pub/databases/merops/current_release/pepunit.lib
+wget -c ftp://ftp.ebi.ac.uk/pub/databases/merops/current_release/pepunit.lib
 perl ../Accessory_scripts/make_pepunit_db.pl
 cd ../
-gdown https://drive.google.com/uc?id=1JQJpw_elM4IyGo_BIfioy8XnmqgoN-Iw
+gdown --quiet https://drive.google.com/uc?id=1JQJpw_elM4IyGo_BIfioy8XnmqgoN-Iw
 tar zxvf METABOLIC_test_files.tgz
 rm *.tgz
